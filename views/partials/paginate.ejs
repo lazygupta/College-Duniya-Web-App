@@ -1,0 +1,29 @@
+<div class="my-2">
+  <nav aria-label="College Pagination">
+    <ul class="pagination pagination-sm justify-content-center">
+      <% if(currentPage - 1) { %>
+        <li class="page-item">
+          <a class="page-link" href="/colleges?page=<%= colleges.page -1 %>">
+            <span area-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      <% } %>
+      <% if(colleges.totalPages > 1 && colleges.docs.length) { %>
+        <% for(let i = startPage; i <= endPage; i++) { %>
+          <li class="page-item">
+            <a class="page-link" href="/colleges?page=<%= i %>"
+              <%= i === colleges.page ? 'style=color:#000;' : '' %>
+            ><%= i %></a>
+          </li>
+        <% } %>
+      <% } %>
+      <% if((currentPage + 1) <= totalPages) { %>
+        <li class="page-item">
+          <a class="page-link" href="/colleges?page=<%= colleges.page + 1 %>">
+            <span area-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+</div>
